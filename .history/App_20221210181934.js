@@ -37,26 +37,6 @@ fetch('https://burgers-hub.p.rapidapi.com/burgers', options)
 
  }, data);
 
- const requestOptions = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: name,
-    desc: desc
-  }),
-};
-
-const handlePress = () => {
-  setLoading(true);
-  fetch("http://127.0.0.1:8000/api/register", requestOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.token) {
-        setLoading(false);
-        
-      }
-    });
-
   return (
     <View style={styles.container}>
       {loading ? <Text>Loading.....</Text> :(
@@ -79,10 +59,8 @@ const handlePress = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
-    
+    paddingTop: Constants.statusBarHeight,
     backgroundColor: '#ecf0f1',
     padding: 8,
   },
@@ -92,4 +70,4 @@ const styles = StyleSheet.create({
   //   fontWeight: 'bold',
   //   textAlign: 'center',
   // },
-})}
+});
